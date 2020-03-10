@@ -17,5 +17,12 @@
     "bugs": {
         "url": "https://github.com/aminhavasi/nodejs-spa/issues"
     },
-    "homepage": "https://github.com/aminhavasi/nodejs-spa#readme"
+    "homepage": "https://github.com/aminhavasi/nodejs-spa#readme",
+    "dependencies": {
+        "@hapi/joi": "^17.1.0",
+        "express": "^4.17.1",
+        "helmet": "^3.21.3",
+        "lodash": "^4.17.15",
+        "mongoose": "^5.9.4"
+    }
 }
