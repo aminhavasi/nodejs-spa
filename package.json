@@ -1,20 +1,21 @@
 {
-  "name": "nodejs-spa",
-  "version": "1.0.0",
-  "description": "backend for spa",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/aminhavasi/nodejs-spa.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/aminhavasi/nodejs-spa/issues"
-  },
-  "homepage": "https://github.com/aminhavasi/nodejs-spa#readme"
+    "name": "nodejs-spa",
+    "version": "1.0.0",
+    "description": "backend for spa",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/aminhavasi/nodejs-spa.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/aminhavasi/nodejs-spa/issues"
+    },
+    "homepage": "https://github.com/aminhavasi/nodejs-spa#readme"
 }
