@@ -1,16 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const {} = require('./../models/user');
+const { User } = require('./../models/user');
 const Joi = require('@hapi/joi');
 
-router.post('/api/login', async (req, res) => {
-    try {
-        const { error } = validationLogin(req.body);
-        if (error) return res.status(400).send(error.details[0].message);
-        let user = await user.findOne({ email: req.body.email });
-        if (!user) return res.status(400).send('invalid eamil or password');
-        res.send('ok');
-    } catch (err) {}
+router.post('/', async (req, res) => {
+    const { error } = validationLogin(req.body);
+    if (error) return res.status(400).send(error.details[0].message);
+    console.log(req.body);
+    // let user = await User.findOne({ email: req.body.email });
+    // console.log(user);
+    // if (!user) return res.status(400).send('invalid eamil or password');
+    // console.log('/*/');
+    res.send('ok');
 });
 
 const validationLogin = req => {

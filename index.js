@@ -14,7 +14,7 @@ mongoose.connect(process.env.URI, {
 });
 //******************************************************************* */
 const login = require('./src/routes/login');
-
+app.use(express.json());
 app.use('/api/login', login);
 /********************************************************************* */
 http.listen(process.env.PORT, () => {
