@@ -12,7 +12,6 @@ mongoose.connect(process.env.URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
-app.use(require('./src/routes/user'));
 http.listen(process.env.PORT, () => {
     console.log(`server is running on port ${process.env.PORT}`);
 });
