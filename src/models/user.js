@@ -41,5 +41,6 @@ const validator = user => {
     return shcema.validate(user);
 };
 module.exports = {
-    User
+    User,
+    validator
 };
