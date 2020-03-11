@@ -12,6 +12,11 @@ mongoose.connect(process.env.URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
+//******************************************************************* */
+const login = require('./src/routes/login');
+
+app.use('/api/login', login);
+/********************************************************************* */
 http.listen(process.env.PORT, () => {
     console.log(`server is running on port ${process.env.PORT}`);
 });
