@@ -2,16 +2,24 @@ const express = require('express');
 const router = express.Router();
 const { User } = require('./../models/user');
 const Joi = require('@hapi/joi');
-
+const bcrypt = require('bcryptjs');
 router.post('/', async (req, res) => {
-    const { error } = validationLogin(req.body);
-    if (error) return res.status(400).send(error.details[0].message);
-    console.log(req.body);
-    // let user = await User.findOne({ email: req.body.email });
-    // console.log(user);
-    // if (!user) return res.status(400).send('invalid eamil or password');
-    // console.log('/*/');
-    res.send('ok');
+    try {
+        const { error } = validationLogin(req.body);
+        if (error) return res.status(400).send(error.details[0].message);
+
+        let user = await User.findOne({ email: req.body.email });
+
+        if (!user) return res.status(400).send('invalid eamil or password');
+        console.log('/*/');
+        res.send('ok');
+    } catch (err) {
+        res.send('pl');
+    }
+});
+router.post('/sign', async (req, res) => {
+    try {
+    } catch (err) {}
 });
 
 const validationLogin = req => {
