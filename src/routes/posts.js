@@ -10,4 +10,12 @@ router.get('/', async (req, res) => {
     res.status(200).send(posts);
 });
 
+router.get('/count', async (req, res) => {
+    const documentCount = await Post.countDocuments();
+    if (!documentCount)
+        return res.status(400).send('there is not data on database');
+
+    res.status(200).send({ count: documentCount });
+});
+
 module.exports = router;
