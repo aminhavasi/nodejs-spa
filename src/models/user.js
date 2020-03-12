@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
     }
 });
 const User = mongoose.model('User', userSchema);
-
+userSchema.methods.genAuthToken = function() {};
 const validator = user => {
     const shcema = Joi.object({
         name: Joi.string()

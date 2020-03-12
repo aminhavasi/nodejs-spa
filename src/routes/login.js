@@ -12,8 +12,15 @@ router.post('/', async (req, res) => {
         let user = await User.findOne({ email: req.body.email });
 
         if (!user) return res.status(400).send('invalid eamil or password');
-        console.log('/*/');
-        res.send('ok');
+
+        const validPassword = await bcrypt.compare(
+            req.body.password,
+            user.password
+        );
+        if (!validPassword)
+            return res.status(400).send('invalid eamil or password');
+        const token = user.genAuthToken();
+        res.status(200).send(token);
     } catch (err) {
         res.send('pl');
     }
