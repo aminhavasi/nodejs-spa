@@ -1,3 +1,4 @@
 {
-    "jwt_key": "aminhavasi"
+    "jwt_key": "aminhavasi",
+    "active_auth": false
 }
