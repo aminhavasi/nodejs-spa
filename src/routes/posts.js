@@ -72,4 +72,11 @@ router.put('/like/:id', async (req, res) => {
     res.status(200).send(post);
 });
 
+router.delete('/:id', auth, async (req, res) => {
+    const post = await Post.findByIdAndRemove(req.params.id);
+
+    if (!post)
+        return res.status(404).send('There is no post for the given id.');
+    res.status(200).send(post);
+});
 module.exports = router;
