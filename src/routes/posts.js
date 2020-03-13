@@ -50,4 +50,13 @@ router.put('/:id', auth, async (req, res) => {
     res.status(200).send(post);
 });
 
+router.get('/:id', async (req, res) => {
+    const post = await Post.findById(req.params.id);
+
+    if (!post)
+        return res.status(404).send('There is no post for the given id.');
+
+    res.status(200).send(post);
+});
+
 module.exports = router;
