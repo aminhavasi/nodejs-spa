@@ -29,4 +29,25 @@ router.post('/', auth, async (req, res) => {
         res.status(400).send();
     }
 });
+
+router.put('/:id', auth, async (req, res) => {
+    const { error } = validate(req.body);
+    if (error) return res.status(400).send(error.details[0].message);
+    const post = await Post.findByIdAndUpdate(
+        req.params.id,
+        {
+            postTitle: req.body.postTitle,
+            postDate: req.body.postDate,
+            postImageUrl: req.body.postImageUrl,
+            postContent: req.body.postContent,
+            postTags: req.body.postTags,
+            postLike: req.body.postLike
+        },
+        { new: true }
+    );
+    if (!post)
+        return res.status(404).send('There is not post for the given id');
+    res.status(200).send(post);
+});
+
 module.exports = router;
