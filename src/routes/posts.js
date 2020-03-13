@@ -59,4 +59,17 @@ router.get('/:id', async (req, res) => {
     res.status(200).send(post);
 });
 
+router.put('/like/:id', async (req, res) => {
+    const post = await Post.findByIdAndUpdate(
+        req.params.id,
+        { $inc: { postLike: +1 } },
+        { new: true }
+    );
+
+    if (!post)
+        return res.status(404).send('There is no post for the given id.');
+
+    res.status(200).send(post);
+});
+
 module.exports = router;
