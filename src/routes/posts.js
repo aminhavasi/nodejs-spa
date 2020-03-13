@@ -18,4 +18,15 @@ router.get('/count', async (req, res) => {
     res.status(200).send({ count: documentCount });
 });
 
+router.post('/', auth, async (req, res) => {
+    try {
+        const { error } = validate(req.body);
+        if (error) return res.status(400).send(error.details[0].message);
+        let post = new Post(req.body);
+        post = await post.save();
+        res.status(200).send(post);
+    } catch (err) {
+        res.status(400).send();
+    }
+});
 module.exports = router;
