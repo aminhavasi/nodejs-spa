@@ -21,11 +21,11 @@ const validate = post => {
         postTitle: Joi.string().required(),
         postDate: Joi.string(),
         postImageUrl: Joi.string(),
-        postContent: Joi.string().required(),
+        postContent: Joi.string(),
         postTags: Joi.array(),
         postLike: Joi.number()
     });
-    return Schema.validate(Schema);
+    return Schema.validate(post);
 };
 
 module.exports = {
