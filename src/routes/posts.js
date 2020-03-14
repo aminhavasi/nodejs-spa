@@ -20,8 +20,10 @@ router.get('/count', async (req, res) => {
 
 router.post('/', auth, async (req, res) => {
     try {
+        console.log(req.body);
         const { error } = validate(req.body);
-        if (error) return res.status(400).send(error.details[0].message);
+        if (error) return res.status(400).send(error.details[0]);
+
         let post = new Post(req.body);
         post = await post.save();
         res.status(200).send(post);
