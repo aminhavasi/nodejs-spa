@@ -7,7 +7,9 @@ router.get('/', async (req, res) => {
     const posts = await Post.find({});
     if (!posts)
         return res.status(400).send('there is not anything on database');
+
     res.status(200).send(posts);
+    console.log(posts)
 });
 
 router.get('/count', async (req, res) => {

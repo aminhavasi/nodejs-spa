@@ -10,7 +10,8 @@ app.use(helmet());
 mongoose.connect(process.env.URI, {
     useCreateIndex: true,
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: true
 });
 //******************************************************************* */
 const login = require('./src/routes/login');
