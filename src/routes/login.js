@@ -17,12 +17,16 @@ router.post('/', async (req, res) => {
             req.body.password,
             user.password
         );
+
         if (!validPassword)
+
             return res.status(400).send('invalid eamil or password');
+        console.log('**')
         const token = user.genAuthToken();
+        console.log(token)
         res.status(200).send(token);
     } catch (err) {
-        res.send('pl');
+        res.status(400).send(err);
     }
 });
 
